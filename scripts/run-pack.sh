@@ -16,6 +16,8 @@ pip install --upgrade transformers
 conda install nvidia/label/cuda-12.2.0::cuda-nvcc
 conda install nvidia::cuda-cudart-dev
 
+ln -s /usr/local/cuda/lib64/libcurand.so $HOME/rm/lib/python3.10/site-packages/torch/lib
+
 . scripts/login.sh
 
 #################################################
@@ -46,7 +48,7 @@ accelerate launch \
     --mixed_precision bf16 ./bradley-terry-rm/llama3_rm.py \
     --model_name meta-llama/Meta-Llama-3.1-8B-Instruct \
     --local_model_path /staging/yyuan244/llama31_pretrain\
-    --per_device_train_batch_size 2 \
+    --per_device_train_batch_size 1 \
     --train_set_path RyanYr/preference_700K_llama31_tokenized \
     --output_path $MODEL_OUTPUT_PATH \
     --bf16 True \

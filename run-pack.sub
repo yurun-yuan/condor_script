@@ -21,7 +21,7 @@ when_to_transfer_output = ON_EXIT
 transfer_input_files = bt-rm/scripts
 
 
-request_cpus = 32
+request_cpus = 80
 request_memory = 512GB
 request_disk = 1024GB
 request_gpus = 4
